@@ -4,19 +4,18 @@ import styled from "styled-components";
 const Thumbnail = styled.div`
   height: 280px;
   width: 280px;
-  background: yellow;
+  background: rgba(0,0,0,0.2);
   padding: 10px;
   margin: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px grey;
+  border-radius: 5px;
 `;
 
 const Title = styled.h4`
-  color: red;
+  color: white;
   text-decoration: none;
 `;
 

@@ -95,11 +95,11 @@ const Home = ({ boards, boardOrder, dispatch }) => {
   const MenuBar=()=>{
     return(
       <AppBar position="static">
-        <Toolbar style={{display:'flex', flexDirection:"row", justifyContent:"space-between"}}>
+        <Toolbar style={{display:'flex', flexDirection:"row", justifyContent:"space-between", backgroundColor:"rgba(0,0,0,0.2)"}}>
           <IconButton edge="start"  color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" >
+          <Typography variant="h6" style={{color:"white"}}>
             Jello
           </Typography>
           <Button color="inherit">Login</Button>
