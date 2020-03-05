@@ -3,6 +3,12 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addBoard } from "../actions";
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 import BoardThumbnail from "./BoardThumbnail";
 
 const Thumbnails = styled.div`
@@ -56,7 +62,7 @@ const Home = ({ boards, boardOrder, dispatch }) => {
     dispatch(addBoard(newBoardTitle));
   };
 
-  const renderBoards = () => {
+  const RenderBoards = () => {
     return boardOrder.map(boardID => {
       const board = boards[boardID];
 
@@ -72,7 +78,7 @@ const Home = ({ boards, boardOrder, dispatch }) => {
     });
   };
 
-  const renderCreateBoard = () => {
+  const RenderCreateBoard = () => {
     return (
       <form onSubmit={handleSubmit} style={{ textAlign: "center" }}>
         <CreateTitle>Create a new Board</CreateTitle>
@@ -86,10 +92,29 @@ const Home = ({ boards, boardOrder, dispatch }) => {
     );
   };
 
+  const MenuBar=()=>{
+    return(
+      <AppBar position="static">
+        <Toolbar style={{display:'flex', flexDirection:"row", justifyContent:"space-between"}}>
+          <IconButton edge="start"  color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" >
+            Jello
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    )
+  }
+
   return (
     <HomeContainer>
-      <Thumbnails>{renderBoards()}</Thumbnails>
-      {renderCreateBoard()}
+      <MenuBar/>
+      <Thumbnails>
+        <RenderBoards/>
+      </Thumbnails>
+      <RenderCreateBoard/>
     </HomeContainer>
   );
 };
