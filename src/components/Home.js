@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -53,6 +53,10 @@ const Home = ({ boards, boardOrder, dispatch }) => {
 
   const [newBoardTitle, setNewBoardTitle] = useState("");
 
+  useEffect(()=>{
+    document.getElementById('homeInput').focus()
+  })
+
   const handleChange = e => {
     setNewBoardTitle(e.target.value);
   };
@@ -84,6 +88,7 @@ const Home = ({ boards, boardOrder, dispatch }) => {
         <CreateTitle>Create a new Board</CreateTitle>
         <CreateInput
           onChange={handleChange}
+          id="homeInput"
           value={newBoardTitle}
           placeholder="Your boards title..."
           type="text"
